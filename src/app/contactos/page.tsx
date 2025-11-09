@@ -4,6 +4,13 @@ import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { MessageCircle, Mail, MapPin } from "lucide-react";
 
+// ✅ Tipagem para os dados dos formulários
+type FormData = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 export default function ContactPage() {
   const [contactData, setContactData] = useState({ name: "", email: "", message: "" });
   const [feedbackData, setFeedbackData] = useState({ name: "", email: "", message: "" });
