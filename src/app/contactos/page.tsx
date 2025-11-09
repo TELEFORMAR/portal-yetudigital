@@ -10,11 +10,11 @@ export default function ContactPage() {
   const [statusContact, setStatusContact] = useState("");
   const [statusFeedback, setStatusFeedback] = useState("");
 
-  const handleChangeContact = (e) => {
+  const handleChangeContact = (e: React.ChangeEvent<HTMLInputElement>) => {
     setContactData({ ...contactData, [e.target.name]: e.target.value });
   };
 
-  const handleChangeFeedback = (e) => {
+  const handleChangeFeedback = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFeedbackData({ ...feedbackData, [e.target.name]: e.target.value });
   };
 
