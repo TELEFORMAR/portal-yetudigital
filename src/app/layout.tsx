@@ -3,6 +3,7 @@ import Providers from "../components/Providers";
 import NavBar from "../components/NavBar";
 import WhatsAppFloat from "../components/WhatsAppFloat";
 import Footer from "../components/Footer";
+import { ReactNode } from "react";
 import RegisterSW from "../components/RegisterSW"; // Service Worker
 import { CartProvider } from "@/context/CartContext"; // Importar o CartProvider
 
@@ -61,7 +62,8 @@ export const metadata = {
   metadataBase: new URL("https://yetumodelagem.ao"),
 };
 
-export default function RootLayout({ children }) {
+//export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-PT">
       <body className="bg-gray-50 text-gray-900 flex flex-col min-h-screen transition-colors duration-500">
