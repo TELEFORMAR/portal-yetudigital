@@ -1,0 +1,7 @@
+[
+  { "id": 1, "nome": "Electrónicos", "imagem": "/images/categorias/auricular.jpg" },
+  { "id": 2, "nome": "Maquetes", "imagem": "/images/categorias/turquia.jpg" },
+  { "id": 3, "nome": "Casa", "imagem": "/images/categorias/compras.jpg" },
+  { "id": 4, "nome": "Livros", "imagem": "/images/categorias/vestido.jpg" },
+  { "id": 5, "nome": "Comida 🍲 e Bebida🥤", "imagem": "/images/categorias/modelagem.jpg" }
+]

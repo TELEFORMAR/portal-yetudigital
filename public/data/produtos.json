@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "nome": "Smartphone Yetu X10",
+    "categoria": "Electrónicos",
+    "preco": 65000,
+    "imagem": "/images/produtos/auricular.jpg"
+  },
+  {
+    "id": 2,
+    "nome": "Vestido 👗 Premium",
+    "categoria": "Maquetes",
+    "preco": 12000,
+    "imagem": "/images/produtos/vestido.jpg"
+  },
+{
+    "id": 3,
+    "nome": "Camisa Premium",
+    "categoria": "Moda",
+    "preco": 18000,
+    "imagem": "/images/produtos/compras.jpg"
+  }
+]
