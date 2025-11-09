@@ -12,28 +12,41 @@ type FormData = {
 };
 
 export default function ContactPage() {
-  const [contactData, setContactData] = useState({ name: "", email: "", message: "" });
-  const [feedbackData, setFeedbackData] = useState({ name: "", email: "", message: "" });
-  const [statusContact, setStatusContact] = useState("");
-  const [statusFeedback, setStatusFeedback] = useState("");
+  const [contactData, setContactData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleChangeContact = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const [feedbackData, setFeedbackData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [statusContact, setStatusContact] = useState<string>("");
+  const [statusFeedback, setStatusFeedback] = useState<string>("");
+
+  const handleChangeContact = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setContactData({ ...contactData, [e.target.name]: e.target.value });
   };
 
-  const handleChangeFeedback = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChangeFeedback = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFeedbackData({ ...feedbackData, [e.target.name]: e.target.value });
   };
 
-  const sendEmail = (data, setStatus, setForm) => {
+  const sendEmail = (
+    data: FormData,
+    setStatus: React.Dispatch<React.SetStateAction<string>>,
+    setForm: React.Dispatch<React.SetStateAction<FormData>>
+  ) => {
     setStatus("Enviando...");
     emailjs
-      .send(
-        "service_ae0i41r",
-        "template_tkl6ndg",
-        data,
-        "uvNGBUYnxyzQ8TOGs"
-      )
+      .send("service_ae0i41r", "template_tkl6ndg", data, "uvNGBUYnxyzQ8TOGs")
       .then(
         () => {
           setStatus("✅ Mensagem enviada com sucesso!");
@@ -54,9 +67,7 @@ export default function ContactPage() {
         Contatos & Feedback
       </h6>
 
-      {/* Container principal */}
       <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto">
-
         {/* Contact Form */}
         <form
           onSubmit={(e) => {
@@ -65,7 +76,9 @@ export default function ContactPage() {
           }}
           className="flex-1 bg-white rounded-2xl shadow-xl p-6 md:p-8 transition-transform hover:-translate-y-1"
         >
-          <h6 className="text-[clamp(1.5rem,4vw,2rem)] text-center text-blue-600 font-bold mb-4">📬 Contacte-nos</h6>
+          <h6 className="text-[clamp(1.5rem,4vw,2rem)] text-center text-blue-600 font-bold mb-4">
+            📬 Contacte-nos
+          </h6>
 
           <input
             type="text"
@@ -103,33 +116,43 @@ export default function ContactPage() {
             Submeter
           </button>
 
-          {statusContact && <p className="text-center mt-2 text-sm animate-pulse">{statusContact}</p>}
+          {statusContact && (
+            <p className="text-center mt-2 text-sm animate-pulse">
+              {statusContact}
+            </p>
+          )}
 
-          {/* Informações de contacto */}
           <div className="mt-6 space-y-3">
             <p className="flex items-center gap-3 text-blue-700 font-medium text-[clamp(0.9rem,2vw,1rem)]">
               <MessageCircle />{" "}
-              <a href="https://wa.me/244943175418" target="_blank" className="hover:text-blue-500 transition">
+              <a
+                href="https://wa.me/244943175418"
+                target="_blank"
+                className="hover:text-blue-500 transition"
+              >
                 WhatsApp: +244 943 175 418
               </a>
             </p>
             <p className="flex items-center gap-3 text-blue-700 font-medium text-[clamp(0.9rem,2vw,1rem)]">
               <Mail />{" "}
-              <a href="mailto:info@yetudigital.com" className="hover:text-blue-500 transition">
+              <a
+                href="mailto:info@yetudigital.com"
+                className="hover:text-blue-500 transition"
+              >
                 info@yetudigital.com
               </a>
             </p>
-             <p className="flex items-center gap-3 text-blue-700 font-medium">
-            <MapPin />
-             <a
-              href="https://www.google.com/maps/place/Soyo,+Zaire,+Angola/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-500 transition underline"
-           >
-              Soyo - Zaire, Angola 🇦🇴 (ver no mapa)
-          </a>
-          </p>
+            <p className="flex items-center gap-3 text-blue-700 font-medium">
+              <MapPin />
+              <a
+                href="https://www.google.com/maps/place/Soyo,+Zaire,+Angola/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-500 transition underline"
+              >
+                Soyo - Zaire, Angola 🇦🇴 (ver no mapa)
+              </a>
+            </p>
           </div>
         </form>
 
@@ -141,7 +164,9 @@ export default function ContactPage() {
           }}
           className="flex-1 bg-white rounded-2xl shadow-xl p-6 md:p-8 transition-transform hover:-translate-y-1"
         >
-          <h6 className="text-[clamp(1.5rem,4vw,2rem)] text-center text-blue-600 font-bold mb-4">💬 Deixe seu feedback</h6>
+          <h6 className="text-[clamp(1.5rem,4vw,2rem)] text-center text-blue-600 font-bold mb-4">
+            💬 Deixe seu feedback
+          </h6>
 
           <input
             type="text"
@@ -179,15 +204,13 @@ export default function ContactPage() {
             Enviar Feedback
           </button>
 
-          {statusFeedback && <p className="text-center mt-2 text-sm animate-pulse">{statusFeedback}</p>}
+          {statusFeedback && (
+            <p className="text-center mt-2 text-sm animate-pulse">
+              {statusFeedback}
+            </p>
+          )}
         </form>
-
       </div>
     </main>
   );
 }
-
-
-
-
-
