@@ -1,11 +1,11 @@
+
 "use client";
 
-import { useState, useEffect, ReactNode } from "react";
+import { useState, useEffect } from "react";
 import { CartProvider } from "../context/CartContext";
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function Providers(props: { children: ReactNode }) {
-  const { children } = props;
+export default function Providers({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
