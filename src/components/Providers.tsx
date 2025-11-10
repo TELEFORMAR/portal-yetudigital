@@ -4,15 +4,10 @@ import { useState, useEffect, ReactNode } from "react";
 import { CartProvider } from "../context/CartContext";
 import { AnimatePresence, motion } from "framer-motion";
 
-// ✅ Tipagem explícita para o parâmetro children
-type ProvidersProps = {
-  children: ReactNode;
-};
-
-export default function Providers({ children }: ProvidersProps) {
+export default function Providers(props: { children: ReactNode }) {
+  const { children } = props;
   const [theme, setTheme] = useState("light");
 
-  // Detecta preferência do usuário ou usa light mode como default
   useEffect(() => {
     const root = window.document.documentElement;
     const initialTheme = localStorage.getItem("theme") || "light";
@@ -39,7 +34,6 @@ export default function Providers({ children }: ProvidersProps) {
           transition={{ duration: 0.3 }}
           className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500"
         >
-          {/* Botão para alternar tema */}
           <button
             onClick={toggleTheme}
             className="fixed bottom-4 right-4 p-2 bg-primary text-white rounded-full shadow-lg z-50"
@@ -53,3 +47,4 @@ export default function Providers({ children }: ProvidersProps) {
     </CartProvider>
   );
 }
+
