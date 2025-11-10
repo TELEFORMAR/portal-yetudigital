@@ -1,24 +1,45 @@
-'use client';
+"use client";
 
-import { createContext, useContext, useState, useEffect } from 'react';
-import { saveCart, loadCart, clearCartDB } from '@/utils/dbCart';
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { saveCart, loadCart, clearCartDB } from "@/utils/dbCart";
 
-const CartContext = createContext(null);
+// Tipagem dos itens do carrinho
+type CartItem = {
+  id: string;
+  preco: number;
+  qty: number;
+  [key: string]: any; // permite campos adicionais
+};
 
-export function CartProvider({ children }) {
-  const [cart, setCart] = useState([]);
+// Tipagem do contexto
+type CartContextType = {
+  cart: CartItem[];
+  addToCart: (product: CartItem) => void;
+  removeFromCart: (id: string) => void;
+  updateQty: (id: string, qty: number) => void;
+  clearCart: () => void;
+  total: number;
+};
 
-  // Carrega do IndexedDB
+// Criação do contexto com tipagem
+const CartContext = createContext<CartContextType | null>(null);
+
+// Provedor do contexto
+export function CartProvider({ children }: { children: ReactNode }) {
+  const [cart, setCart] = useState<CartItem[]>([]);
+
+  // Carrega do IndexedDB ao montar
   useEffect(() => {
     loadCart().then(setCart).catch(console.error);
   }, []);
 
-  // Salva no IndexedDB
+  // Salva no IndexedDB ao atualizar
   useEffect(() => {
     saveCart(cart).catch(console.error);
   }, [cart]);
 
-  const addToCart = (product) => {
+  // Adiciona produto ao carrinho
+  const addToCart = (product: CartItem) => {
     setCart((prev) => {
       const exists = prev.find((item) => item.id === product.id);
       if (exists) {
@@ -30,19 +51,25 @@ export function CartProvider({ children }) {
     });
   };
 
-  const removeFromCart = (id) =>
+  // Remove produto do carrinho
+  const removeFromCart = (id: string) => {
     setCart((prev) => prev.filter((item) => item.id !== id));
+  };
 
-  const updateQty = (id, qty) =>
+  // Atualiza quantidade
+  const updateQty = (id: string, qty: number) => {
     setCart((prev) =>
       prev.map((item) => (item.id === id ? { ...item, qty } : item))
     );
+  };
 
+  // Limpa carrinho
   const clearCart = () => {
     setCart([]);
     clearCartDB();
   };
 
+  // Total do carrinho
   const total = cart.reduce((sum, item) => sum + item.preco * item.qty, 0);
 
   return (
@@ -54,4 +81,5 @@ export function CartProvider({ children }) {
   );
 }
 
+// Hook para usar o contexto
 export const useCart = () => useContext(CartContext);
