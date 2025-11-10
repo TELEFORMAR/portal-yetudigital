@@ -29,13 +29,13 @@ export default function ContactPage() {
 
   const handleChangeContact = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  ): void => {
     setContactData({ ...contactData, [e.target.name]: e.target.value });
   };
 
   const handleChangeFeedback = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  ): void => {
     setFeedbackData({ ...feedbackData, [e.target.name]: e.target.value });
   };
 
@@ -43,7 +43,7 @@ export default function ContactPage() {
     data: FormData,
     setStatus: React.Dispatch<React.SetStateAction<string>>,
     setForm: React.Dispatch<React.SetStateAction<FormData>>
-  ) => {
+  ): void => {
     setStatus("Enviando...");
     emailjs
       .send("service_ae0i41r", "template_tkl6ndg", data, "uvNGBUYnxyzQ8TOGs")
