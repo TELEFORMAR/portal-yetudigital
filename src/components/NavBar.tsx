@@ -10,10 +10,10 @@ export default function NavBar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-//  const { cart } = useCart(); // Usando o contexto do carrinho para pegar os itens
 
-const cartContext = useCart();
-const cart = cartContext?.cart ?? [];
+// Usando o contexto do carrinho para pegar os itens
+const CartContext = useCart();
+const cart = CartContext?.cart ?? [];
 
   // Efeito de scroll
   useEffect(() => {
