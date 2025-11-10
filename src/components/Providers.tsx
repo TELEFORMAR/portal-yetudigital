@@ -4,7 +4,7 @@ import { useState, useEffect, ReactNode } from "react";
 import { CartProvider } from "../context/CartContext";
 import { AnimatePresence, motion } from "framer-motion";
 
-// Tipagem explícita para o parâmetro children
+// ✅ Tipagem explícita para o parâmetro children
 type ProvidersProps = {
   children: ReactNode;
 };
@@ -53,5 +53,3 @@ export default function Providers({ children }: ProvidersProps) {
     </CartProvider>
   );
 }
-
-
