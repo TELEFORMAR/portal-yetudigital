@@ -26,9 +26,9 @@ export default function HomePage() {
       <section className="relative bg-black text-white py-20 sm:py-28 px-4 sm:px-6 text-center rounded-b-3xl shadow-md overflow-hidden">
         <div className="absolute inset-0 bg-[url('/icons/fabric-texture.png')] opacity-10 bg-cover bg-center"></div>
         <div className="relative z-10 max-w-3xl mx-auto">
-          <h1 className="text-[clamp(1.8rem,4vw,3.5rem)] font-bold mb-3 leading-tight">
+          <h5 className="text-[clamp(1.8rem,4vw,3.5rem)] font-bold mb-3 leading-tight">
             Yetu Modelagem Digital
-          </h1>
+          </h5>
           <p className="text-[clamp(0.9rem,2vw,1.3rem)] mb-6 leading-relaxed text-blue-100">
             Inovação em cada personalização.
           </p>
@@ -43,9 +43,9 @@ export default function HomePage() {
 
       {/* 🧵 Produtos */}
       <section className="max-w-6xl mx-auto py-16 sm:py-20 px-4 sm:px-6">
-        <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-blue-700 mb-10 text-center">
+        <h5 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-blue-700 mb-10 text-center">
           Produtos em destaque:
-        </h2>
+        </h5>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {produtos.map((p) => (
             <div
@@ -55,7 +55,7 @@ export default function HomePage() {
               <div className="h-40 sm:h-48 bg-gray-200 rounded mb-4 flex items-center justify-center text-gray-400 text-[clamp(0.9rem,2vw,1.1rem)]">
                 Imagem
               </div>
-              <h3 className="font-semibold text-[clamp(1rem,2.2vw,1.2rem)] mb-1">{p.nome}</h3>
+              <h5 className="font-semibold text-[clamp(1rem,2.2vw,1.2rem)] mb-1">{p.nome}</h5>
               <p className="text-gray-600 text-[clamp(0.8rem,1.8vw,1rem)] mb-3">{p.descricao}</p>
               <span className="text-blue-700 font-bold text-[clamp(0.9rem,2vw,1.1rem)]">
                 Preço: {p.preco.toLocaleString()} AOA
@@ -75,16 +75,16 @@ export default function HomePage() {
 
       {/* ✂️ Serviços */}
       <section className="bg-gray-100 py-16 sm:py-20 px-4 sm:px-6">
-        <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-blue-700 mb-10 text-center">
+        <h5 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-blue-700 mb-10 text-center">
           Serviços Personalizados
-        </h2>
+        </h5>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {servicos.map((s) => (
             <div
               key={s.id}
               className="bg-white rounded-xl shadow-md p-6 text-center hover:scale-105 transform transition"
             >
-              <h3 className="font-semibold text-[clamp(1rem,2.2vw,1.2rem)] mb-1">{s.nome}</h3>
+              <h5 className="font-semibold text-[clamp(1rem,2.2vw,1.2rem)] mb-1">{s.nome}</h5>
               <p className="text-gray-600 text-[clamp(0.8rem,1.8vw,1rem)] mb-3">{s.descricao}</p>
               <Link
                 href={s.link}
@@ -99,9 +99,9 @@ export default function HomePage() {
 
       {/* ⚒ Trabalhos Acadêmicos */}
       <section className="max-w-4xl mx-auto py-16 sm:py-20 px-4 sm:px-6 text-center">
-        <h2 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-blue-700 mb-4">
+        <h5 className="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-blue-700 mb-4">
           Trabalhos Acadêmicos
-        </h2>
+        </h5>
         <p className="text-gray-600 text-[clamp(0.85rem,1.8vw,1rem)] mb-6 leading-relaxed">
           Veja alguns exemplos dos nossos trabalhos para instituições e estudantes.
         </p>

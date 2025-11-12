@@ -7,7 +7,7 @@ import { ReactNode } from "react";
 import RegisterSW from "../components/RegisterSW"; // Service Worker
 import { CartProvider } from "@/context/CartContext"; // Importar o CartProvider
 
-// ✅ SEO Global — Yetu Modelagem Digital
+// ✅ SEO Global + PWA Metadata
 export const metadata = {
   title: {
     default: "Yetu Modelagem Digital",
@@ -57,17 +57,23 @@ export const metadata = {
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/icons/icon-192x192.png",
   },
   metadataBase: new URL("https://yetumodelagem.ao"),
+
+  // 🔑 PWA
+  manifest: "/manifest.json",
+};
+// ✅ Agora o themeColor vai separado
+export const viewport = {
+  themeColor: "#2563eb",
 };
 
-//export default function RootLayout({ children }) {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-PT">
       <body className="bg-gray-50 text-gray-900 flex flex-col min-h-screen transition-colors duration-500">
-        <CartProvider> {/* Adicione o CartProvider aqui */}
+        <CartProvider>
           <Providers>
             <NavBar />
             <main className="flex-grow pt-24 px-6 md:px-10 lg:px-20">

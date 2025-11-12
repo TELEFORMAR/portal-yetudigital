@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
 
 export default function CategoriasCarousel({
   onSelect,
@@ -14,10 +14,10 @@ export default function CategoriasCarousel({
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    fetch('/data/categorias.json')
-      .then(res => res.json())
+    fetch("/data/categorias.json")
+      .then((res) => res.json())
       .then(setCategorias)
-      .catch(err => console.error('Erro ao carregar categorias:', err));
+      .catch((err) => console.error("Erro ao carregar categorias:", err));
   }, []);
 
   // Calcula largura total do carrossel
@@ -56,35 +56,40 @@ export default function CategoriasCarousel({
         ◀
       </button>
 
-      <motion.div
-        className="flex gap-4 px-8"
-        animate={{ x: offset }}
-        transition={{ type: 'spring', stiffness: 80 }}
-      >
-        {categorias.map((cat) => (
-          <div
-            key={cat.id}
-            onClick={() => onSelect(cat.nome)}
-            className="cursor-pointer flex flex-col items-center justify-center hover:scale-105 transition w-[100px] flex-shrink-0"
-          >
-            <div className="w-full flex justify-center">
-              <Image
-                src={cat.imagem}
-                alt={cat.nome}
-                width={100}
-                height={100}
-                className="object-contain w-full h-auto rounded-xl"
-              />
-            </div>
-            <p
-              className="text-center mt-2 font-medium"
-              style={{ fontSize: 'clamp(0.8rem, 1.5vw, 1rem)' }}
+      <AnimatePresence>
+        <motion.div
+          className="flex gap-4 px-8"
+          animate={{ x: offset }}
+          transition={{ type: "spring", stiffness: 80 }}
+        >
+          {categorias.map((cat) => (
+            <motion.div
+              key={cat.id}
+              onClick={() => onSelect(cat.nome)}
+              className="cursor-pointer flex flex-col items-center justify-center hover:scale-105 transition w-[100px] flex-shrink-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             >
-              {cat.nome}
-            </p>
-          </div>
-        ))}
-      </motion.div>
+              <div className="w-full flex justify-center">
+                <Image
+                  src={cat.imagem}
+                  alt={cat.nome}
+                  width={100}
+                  height={100}
+                  className="object-contain w-full h-auto rounded-xl"
+                />
+              </div>
+              <p
+                className="text-center mt-2 font-medium"
+                style={{ fontSize: "clamp(0.8rem, 1.5vw, 1rem)" }}
+              >
+                {cat.nome}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </AnimatePresence>
 
       <button
         onClick={moveRight}

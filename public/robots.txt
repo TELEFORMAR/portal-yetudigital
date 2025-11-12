@@ -1,0 +1,15 @@
+# *
+User-agent: *
+Allow: /
+
+# *
+User-agent: *
+Disallow: /admin
+Disallow: /api
+
+# Host
+Host: https://www.yetumodelagemdigital.com
+
+# Sitemaps
+Sitemap: https://www.yetumodelagemdigital.com/sitemap.xml
+Sitemap: https://yetudigital.co.ao/sitemap.xml

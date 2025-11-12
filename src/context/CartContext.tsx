@@ -1,10 +1,16 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 import { saveCart, loadCart, clearCartDB } from "@/utils/dbCart";
 
 // Tipagem dos itens do carrinho
-type CartItem = {
+export type CartItem = {
   id: string;
   preco: number;
   qty: number;
@@ -30,12 +36,20 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   // Carrega do IndexedDB ao montar
   useEffect(() => {
-    loadCart().then(setCart).catch(console.error);
+    loadCart()
+      .then((data) => {
+        if (data && Array.isArray(data)) {
+          setCart(data);
+        }
+      })
+      .catch((err) => console.error("Erro ao carregar carrinho:", err));
   }, []);
 
   // Salva no IndexedDB ao atualizar
   useEffect(() => {
-    saveCart(cart).catch(console.error);
+    saveCart(cart).catch((err) =>
+      console.error("Erro ao salvar carrinho:", err)
+    );
   }, [cart]);
 
   // Adiciona produto ao carrinho
@@ -66,7 +80,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
   // Limpa carrinho
   const clearCart = () => {
     setCart([]);
-    clearCartDB();
+    clearCartDB().catch((err) =>
+      console.error("Erro ao limpar carrinho:", err)
+    );
   };
 
   // Total do carrinho
@@ -82,4 +98,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
 }
 
 // Hook para usar o contexto
-export const useCart = () => useContext(CartContext);
+export const useCart = () => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error("useCart deve ser usado dentro de CartProvider");
+  }
+  return context;
+};

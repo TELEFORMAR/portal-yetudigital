@@ -29,8 +29,9 @@ const cart = CartContext?.cart ?? [];
     { href: "/parcerias", label: "Parcerias" },
     { href: "/recomendacoes", label: "Recomendações" },
     { href: "/trabalhos", label: "Trabalhos" },
-    { href: "/sobre", label: "Sobre Yetu" },
+    { href: "/sobre", label: "Sobre a Yetu" },
     { href: "/contactos", label: "Contactos" },
+    { href: "/blog", label: "Blog" },
   ];
 
   return (
