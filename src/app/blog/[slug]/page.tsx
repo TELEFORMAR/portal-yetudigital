@@ -21,7 +21,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const { data, content } = matter(fileContent);
 
   // ✅ garante string
-  const htmlContent = marked.parse(content);
+  const htmlContent = await marked.parseAsync(content);
 
   return (
     <main style={{ padding: "20px" }}>
