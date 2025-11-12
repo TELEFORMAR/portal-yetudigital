@@ -20,8 +20,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
 
-  // ✅ garante string
-  const htmlContent = await marked.parseAsync(content);
+  // ✅ garante string sem Promise
+  const htmlContent: string = marked.parse(content) as string;
 
   return (
     <main style={{ padding: "20px" }}>
