@@ -1,21 +1,21 @@
 ---
-title: "Segundo Post"
-date: "2025-11-13"
+title: "Primeiro teste de Post"
+date: "2025-11-12"
 ---
 
-# Explorando Novas Ideias 💡
+# Explorando Novas Ideias para o Portal Yetu Modelagem Digital 💡
 
-Este é o segundo artigo para praticar.
+Este é o segundo artigo para postar nessa magna plataforma.
 
 ## Imagem
-![Cidade moderna](/images/cidade.jpg)
+![Cidade moderna](/images/moyo.png)
 
 ## Texto
-Você pode adicionar **códigos**, citações e até tabelas:
-
+Saudações empresarial **Yetu Modelagem Digital**, é uma plataforma digital para revolucionar Soyo e Angola💥:
+Não tenho muita ideia 💡 para escrever ✍ aqui.
 | Nome   | Idade |
 |--------|-------|
-| Ana    | 25    |
-| Carlos | 30    |
+| Yetu   | 18    |
+| Digital| 100   |
 
 [Leia mais sobre tecnologia](https://techcrunch.com)

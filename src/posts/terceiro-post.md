@@ -1,6 +1,6 @@
 ---
 title: "Terceiro Post"
-date: "2025-11-14"
+date: "2025-11-12"
 ---
 
 # Criatividade sem Limites ✨
@@ -11,8 +11,9 @@ Este é o terceiro artigo de exemplo.
 ![Montanha nevada](/images/montanha.jpg)
 
 ## Texto
-Você pode misturar texto com imagens e links.
+Exemplo famoso:
 
 > "A criatividade é a inteligência se divertindo." – Albert Einstein
+compreende? Ligue já.
 
 [Descubra mais sobre inovação](https://innovationhub.com)
