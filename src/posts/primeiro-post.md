@@ -1,5 +1,5 @@
 ---
-title: "Primeiro teste de Post"
+title: "Primeiro teste de Post | Postar no Portal Yetu"
 date: "2025-11-12"
 ---
 
@@ -12,7 +12,7 @@ Este é o segundo artigo para postar nessa magna plataforma.
 
 ## Texto
 Saudações empresarial **Yetu Modelagem Digital**, é uma plataforma digital para revolucionar Soyo e Angola💥:
-Não tenho muita ideia 💡 para escrever ✍ aqui.
+Não tenho muita ideia 💡 para escrever ✍ aqui, mas posso criar tabelas.
 | Nome   | Idade |
 |--------|-------|
 | Yetu   | 18    |
