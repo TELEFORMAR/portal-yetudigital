@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { marked } from "marked";
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params; // ✅ resolve o Promise
+  const { slug } = await params;
 
   const filePath = path.join(process.cwd(), "src", "posts", `${slug}.md`);
 
@@ -20,7 +20,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
 
-  // garante string
+  // ✅ garante string
   const htmlContent = marked.parse(content);
 
   return (
