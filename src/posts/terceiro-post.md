@@ -1,5 +1,5 @@
 ---
-title: "Terceiro Post | Última Postagem, por agora."
+title: "Terceiro Post | Última Postagem, por agora!"
 date: "2025-11-12"
 ---
 

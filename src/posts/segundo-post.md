@@ -1,5 +1,5 @@
 ---
-title: "Segunndo teste de Post | Ainda continuo"
+title: "Segunndo teste de Post | Ainda continuo!"
 date: "2025-11-12"
 ---
 

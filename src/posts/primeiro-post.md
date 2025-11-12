@@ -1,5 +1,5 @@
 ---
-title: "Primeiro teste de Post | Postar no Portal Yetu"
+title: "Primeiro teste de Post | Postar no Portal Yetu."
 date: "2025-11-12"
 ---
 
